@@ -1,0 +1,8 @@
+production:
+  # password: <%= ENV['TESTING_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  host: testingpostgresdb
+  database: testing_prod

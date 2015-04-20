@@ -1,0 +1,22 @@
+testingpostgresdatavol:
+  image: postgres:latest
+  volumes:
+    - /testdbdata
+
+
+testingpostgresdb:
+  image: postgres:latest
+  volumes_from:
+    - testingpostgresdatavol
+  ports:
+    - "5432"
+
+testingwebapp:
+  build: .
+  volumes:
+    - .:/testing
+  ports:
+    - "80:80"
+  links:
+    - testingpostgresdb
+
